@@ -1,0 +1,396 @@
+/* CSS-ПЕРЕМЕННЫЕ */
+:root {
+    /* Основной цвет */
+    --color-primary: #5e2a8c;
+    --color-primary-dark: #3a1a5c;
+    --color-primary-light: #b280ff;
+    --color-primary-soft: #e8dbff;
+
+    /* Акцент */
+    --color-accent: #ffffff;
+
+    /* Нейтральные */
+    --color-bg: #f9f5ff;
+    --color-text: #2e1a47;
+    --color-text-muted: #5c3b7a;
+    --color-border: #d9c2ff;
+
+    /* Шрифты */
+    --font-main: 'Segoe UI', Roboto, system-ui, sans-serif;
+    --font-mono: 'Consolas', 'Courier New', monospace;
+
+    /* Радиусы и тени */
+    --radius-lg: 2rem;
+    --radius-md: 1.5rem;
+    --radius-sm: 16px;
+    --shadow-soft: 0 15px 30px rgba(128, 0, 128, 0.1);
+}
+
+/* сброс*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    line-height: 1.6;
+    padding: 1.5rem;
+    /* position: static (по умолчанию) — демонстрация */
+    position: static;
+}
+
+/* страница*/
+.page {
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: var(--color-accent);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-soft);
+    padding: 2rem 2rem 1.5rem;
+    border: 1px solid var(--color-border);
+}
+
+/*шапка */
+header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    padding-bottom: 1.5rem;
+    border-bottom: 3px solid var(--color-primary-light);
+    margin-bottom: 2rem;
+}
+
+.header-text h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    letter-spacing: -0.5px;
+}
+
+.header-text p {
+    font-size: 1.2rem;
+    color: #7b4fa1;
+    font-style: italic;
+}
+
+/* Avatar*/
+.avatar {
+    position: relative;
+    top: -4px;
+    border-radius: 50%;
+    border: 4px solid var(--color-primary-light);
+    object-fit: cover;
+    background: #ede4ff;
+    box-shadow: 0 6px 12px rgba(128, 0, 200, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+}
+
+/* сетка  */
+.content-wrapper {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+main {
+    flex: 2.5;
+    min-width: 280px;
+}
+
+/* aside */
+aside {
+    flex: 1.3;
+    min-width: 220px;
+    padding: 1.5rem 1.4rem;
+    border-radius: 1.8rem;
+    align-self: start;
+    border: 1px solid var(--color-border);
+    /* position: relative для позиционирования декора */
+    position: relative;
+}
+
+/* absolute  */
+aside::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    right: -10px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--color-primary-soft);
+    z-index: -1;
+}
+
+aside h3 {
+    font-size: 1.5rem;
+    color: var(--color-primary-dark);
+    margin-bottom: 1rem;
+    border-bottom: 2px dashed var(--color-primary-light);
+    padding-bottom: 0.5rem;
+}
+
+aside p {
+    color: var(--color-text);
+}
+
+.highlight-word {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary-dark);
+}
+
+/* секции*/
+.scroll-section {
+    margin-bottom: 2rem;
+    background: #fcf9ff;
+    padding: 1.4rem 1.8rem;
+    border-radius: var(--radius-md);
+    border: 2px solid transparent;
+    transition: border-color 0.35s ease, background-color 0.35s ease, box-shadow 0.35s ease;
+}
+
+/* Подсветка*/
+.scroll-section.active {
+    border-color: var(--color-primary);
+    background-color: #f3ebff;
+    box-shadow: 0 8px 22px rgba(94, 42, 140, 0.18);
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+h2::before {
+    content: "◆";
+    color: #a36eff;
+    font-size: 1.5rem;
+}
+
+/* навыки*/
+ul.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem 1.5rem;
+}
+
+ul.skills-list li {
+    background: var(--color-primary-soft);
+    padding: 0.5rem 1.2rem 0.5rem 2.2rem;
+    border-radius: 30px;
+    position: relative;
+    font-weight: 500;
+    color: var(--color-primary-dark);
+    box-shadow: 0 2px 5px rgba(160, 100, 255, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+ul.skills-list li::before {
+    content: "✧";
+    position: absolute;
+    left: 0.8rem;
+    color: #8a4dff;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+ul.skills-list li:hover {
+    transform: translateY(-2px);
+    background: #dcc8ff;
+}
+
+/* проекты */
+ol.projects-list {
+    padding-left: 1rem;
+    counter-reset: project-counter;
+    list-style: none;
+}
+
+.project-card {
+    counter-increment: project-counter;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    position: relative;          /* ★ база для absolute-иконки */
+    font-weight: 500;
+    color: #2c193f;
+    padding: 0.9rem 3rem 0.9rem 2.5rem;
+    border-radius: var(--radius-sm);
+    background: #fff;
+    border: 1px solid var(--color-border);
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.project-card:hover {
+    box-shadow: 0 6px 16px rgba(94, 42, 140, 0.15);
+    transform: translateX(4px);
+}
+
+.project-card::before {
+    content: counter(project-counter) ".";
+    position: absolute;
+    left: 0.9rem;
+    top: 0.9rem;
+    font-weight: 700;
+    color: #7a3ec9;
+    font-size: 1rem;
+    white-space: nowrap;
+}
+
+/* Иконка */
+.favorite-icon {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    font-size: 1.3rem;
+    color: #cbb3ff;
+    cursor: pointer;
+    transition: color 0.2s ease, transform 0.2s ease;
+    user-select: none;
+}
+
+.favorite-icon:hover {
+    color: #ffb400;
+    transform: scale(1.2);
+}
+
+.favorite-icon:active {
+    transform: scale(0.95);
+}
+
+/* форма */
+.feedback-form {
+    background: #f1e8ff;
+    padding: 1.8rem;
+    border-radius: var(--radius-lg);
+    margin: 1rem 0 1.8rem;
+    border: 1px solid #cdb5ff;
+}
+
+.feedback-form h2 {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 1.3rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-weight: 600;
+    color: #4b2b6b;
+    margin-bottom: 0.4rem;
+    font-size: 0.98rem;
+    letter-spacing: 0.3px;
+}
+
+input,
+textarea {
+    padding: 0.85rem 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 1rem;
+    background: var(--color-accent);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    font-family: var(--font-main);
+    color: var(--color-text);
+}
+
+/* focus */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(94, 42, 140, 0.15);
+}
+
+/* кнопка*/
+.btn-submit {
+    background: #7d3fd6;
+    color: var(--color-accent);
+    border: none;
+    padding: 0.9rem 2.4rem;
+    border-radius: 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 8px 18px rgba(128, 0, 200, 0.25);
+    letter-spacing: 0.5px;
+    align-self: flex-start;
+    border: 1px solid #a479ff;
+}
+
+.btn-submit:hover {
+    background: #6a2fc0;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 22px rgba(128, 0, 200, 0.32);
+}
+
+.btn-submit:active {
+    background: #55219a;
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 4px 10px rgba(128, 0, 200, 0.3);
+}
+
+/* ★ :focus — чёткая белая рамка толщиной 3px вокруг кнопки */
+.btn-submit:focus {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* ссылки*/
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+    text-decoration: underline;
+}
+
+a:active {
+    color: #3a1a5c;
+}
+
+/* :visited — посещённая ссылка в подвале меняет цвет */
+.footer-link:visited {
+    color: #7b4fa1;
+}
+
+/* подвал*/
+footer {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    text-align: center;
+    border-top: 2px solid #d4bbff;
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.footer-copy {
+    font-weight: 500;
+}
